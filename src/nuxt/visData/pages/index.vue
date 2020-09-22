@@ -1,15 +1,18 @@
 <template>
-  <div style="height: 100vh;">
-  </div>
+  <FullPage />
 </template>
 
 <script>
+import FullPage from '~/components/FullPage.vue';
+
 export default {
   head: {
     title: process.env.title,
     titleTemplate: ''
   },
-  components: {},
+  components: {
+    FullPage: FullPage
+  },
   data: function() {
     return {};
   },
