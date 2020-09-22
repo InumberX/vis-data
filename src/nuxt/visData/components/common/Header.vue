@@ -189,4 +189,16 @@ export default {
   width: 120px;
   height: 32px;
 }
+@media screen and (min-width: $bp--sp), print {
+  .hd-wrap {
+    height: 64px;
+  }
+  .hd-logo-box {
+    width: 160px;
+  }
+  .hd-logo-img {
+    width: 160px;
+    height: 44px;
+  }
+}
 </style>
