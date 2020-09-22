@@ -28,8 +28,7 @@ export default {
   head: {
     titleTemplate: '%s | ' + title,
     htmlAttrs: {
-      lang: 'ja',
-      prefix: 'og: http://ogp.me/ns#'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
