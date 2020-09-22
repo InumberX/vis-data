@@ -1,19 +1,15 @@
 <template>
-  <div style="height: 100vh;">
-  </div>
+  <div class="page-ttl-wrap"></div>
+  <!-- /.page-ttl-wrap -->
 </template>
 
 <script>
 export default {
-  head: {
-    title: process.env.title,
-    titleTemplate: ''
-  },
   components: {},
   data: function() {
     return {};
   },
-  mounted: function() {}
+  created: function() {}
 };
 </script>
 
