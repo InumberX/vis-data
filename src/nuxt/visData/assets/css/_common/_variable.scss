@@ -1,0 +1,56 @@
+// フォント ==========
+// デフォルト
+$font--main: -apple-system, BlinkMacSystemFont, Lucida Grande, Helvetica, Arial,
+  "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium",
+  "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo,
+  sans-serif;
+
+// ブレイクポイント ==========
+$bp--sp: 481px;
+$bp--md: 769px;
+$bp--lg: 1000px;
+$bp--xl: 1280px;
+
+// カラーパレット ==========
+$palette-white--0: #fff;
+
+$palette-black--0: #000;
+$palette-black--1: #111;
+$palette-black--2: #3c3c3c;
+
+$palette-yellow--1: #f1f10a;
+
+$palette-blue--1: #12c2e9;
+
+$palette-purple--1: #c471ed;
+
+$palette-red--1: #f64f59;
+
+// 文字カラー ==========
+$color-tx--main: $palette-white--0;
+
+$color-tx--mark: $palette-black--2;
+
+$color-tx--link: $palette-red--1;
+$color-tx--link-hover: $palette-red--1;
+
+// 背景カラー ==========
+$color-bg--main: $palette-black--1;
+
+$color-bg--mark: $palette-yellow--1;
+
+// 入力項目カラー ==========
+
+// z-index ==========
+// 汎用
+$z-index--1: 1;
+$z-index--2: 2;
+$z-index--3: 3;
+$z-index--4: 4;
+$z-index--5: 5;
+
+// ヘッダー
+$z-index--header-1: 10000;
+
+// フッター
+$z-index--footer-1: 9000;
