@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import metaConfig from '~/config/meta';
 // コンポーネント読み込み
 import Header from '~/components/common/Header.vue';
 import Footer from '~/components/common/Footer.vue';
@@ -24,7 +25,17 @@ export default {
   },
   created: function() {},
   // 各処理
-  methods: {}
+  methods: {},
+  watch: {
+    path: function() {
+      console.log(this.$route.path);
+    }
+  },
+  computed: {
+    path: function() {
+      return this.$route.path;
+    }
+  }
 };
 </script>
 

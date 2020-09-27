@@ -40,6 +40,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// 変数
+@import '~assets/css/_common/variable';
+
 .ft-wrap {
   position: absolute;
   bottom: 0;
@@ -48,6 +51,7 @@ export default {
   padding: 0;
   width: 100%;
   background-color: transparent;
+  z-index: $z-index--footer-1;
 }
 .ft-copy-wrap {
   margin: 0;

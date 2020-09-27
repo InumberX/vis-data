@@ -24,6 +24,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: $z-index--page-ttl-1;
 }
 .page-ttl-circle {
   display: block;

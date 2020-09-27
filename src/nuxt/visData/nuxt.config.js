@@ -12,6 +12,7 @@ const title = 'vis:Data';
 const protocol = 'https://';
 const domain = 'vis-data.netlify.app';
 const url = protocol + domain + '/';
+const description = 'description';
 
 export default {
   env: {
@@ -19,11 +20,27 @@ export default {
     title: title,
     protocol: protocol,
     domain: domain,
-    url: url
+    url: url,
+    description: description
   },
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-
+  router: {
+    linkActiveClass: 'active',
+    linkExactActiveClass: 'exact-active',
+    // ページ遷移時の設定
+    scrollBehavior: function(to, from, savedPosition) {
+      // トップまでスクロールする
+      return { x: 0, y: 0 };
+    },
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'notFound',
+        path: '*',
+        component: resolve(__dirname, 'pages/index.vue')
+      });
+    }
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s | ' + title,
@@ -33,7 +50,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: description }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
