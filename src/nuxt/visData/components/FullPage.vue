@@ -44,9 +44,8 @@
 </template>
 
 <script>
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
-Swiper.use([Navigation, Pagination]);
 
 import metaConfig from '~/config/meta';
 
@@ -121,9 +120,11 @@ export default {
         },
         // マウスホイールでスライダーを操作できるようにするか
         mousewheel: {
-          invert: true
+          invert: false
         }
       });
+
+      console.log(this.slider);
     }
   },
   methods: {
@@ -156,21 +157,6 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: radial-gradient(
-      transparent 0%,
-      transparent 20%,
-      $palette-black--1 100%
-    );
-    z-index: $z-index--2;
-  }
 }
 .full-page-slid-change-btn-box {
   position: absolute;
@@ -204,5 +190,20 @@ export default {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(
+      transparent 0%,
+      transparent 20%,
+      $palette-black--1 100%
+    );
+    z-index: $z-index--2;
+  }
 }
 </style>
