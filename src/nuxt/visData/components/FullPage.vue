@@ -111,7 +111,7 @@ export default {
         // スライド方向：horizontal（水平）, vertical（垂直）（effectオプションが 'slide' 以外は無効）
         direction: 'horizontal',
         // slide, fade(フェード), cube（キューブ回転）, coverflow（カバーフロー）, flip（平面回転）
-        effect: 'fade',
+        effect: 'slide',
         // スライダーの自動再生
         autoplay: false,
         // ページネーション
@@ -157,7 +157,7 @@ export default {
           centeredSlides: false,
           spaceBetween: 0,
           direction: 'horizontal',
-          effect: 'fade',
+          effect: 'slide',
           autoplay: false,
           pagination: false,
           navigation: false,
@@ -195,6 +195,12 @@ export default {
 // 変数
 @import '~assets/css/_common/variable';
 
+.swiper-container {
+  opacity: 0;
+  &.swiper-container-initialized {
+    opacity: 1;
+  }
+}
 .full-page-wrap {
   width: 100%;
   max-height: 100vh;
