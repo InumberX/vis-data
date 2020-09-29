@@ -28,8 +28,10 @@ export default {
 }
 .page-ttl-circle {
   display: block;
-  width: 300px;
-  height: 300px;
+  width: 70vw;
+  height: 70vw;
+  max-width: 640px;
+  max-height: 640px;
   border-radius: 640px;
   background-color: transparent;
   box-shadow: inset 2px 0 2px 0 $palette-blue--1,
@@ -37,15 +39,7 @@ export default {
     inset 0 0 0 2px $palette-red--1;
 }
 @media screen and (min-width: $bp--sp), print {
-  .page-ttl-circle {
-    width: 400px;
-    height: 400px;
-  }
 }
 @media screen and (min-width: $bp--md), print {
-  .page-ttl-circle {
-    width: 640px;
-    height: 640px;
-  }
 }
 </style>

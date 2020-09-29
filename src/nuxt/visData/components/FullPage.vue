@@ -2,34 +2,37 @@
   <div class="full-page-wrap" :style="{ height: height }">
     <div class="full-page-box">
       <div class="full-page-slider-box" id="full-page-slider">
-        <div class="full-page-slider is-main" data-js-target="slider">
-          <div class="full-page-slid-change-btn-box is-prev">
-            <button
-              class="full-page-slid-change-btn is-prev"
-              title="前へ"
-              aria-label="前へ"
-              data-js-trigger="slid-prev"
-            ></button>
-          </div>
-          <div class="full-page-slider-cnt-box swiper-container">
-            <ul class="full-page-slider-items swiper-wrapper">
-              <li class="full-page-slider-item swiper-slide">
-                <div class="full-page-slid"></div>
-              </li>
-              <li class="full-page-slider-item swiper-slide">
-                <div class="full-page-slid"></div>
-              </li>
-            </ul>
-          </div>
-          <div class="full-page-slid-change-btn-box is-next">
-            <button
-              class="full-page-slid-change-btn is-next"
-              title="次へ"
-              aria-label="次へ"
-              data-js-trigger="slid-next"
-            ></button>
+        <div class="inner">
+          <div class="full-page-slider is-main" data-js-target="slider">
+            <div class="full-page-slid-change-btn-box is-prev">
+              <button
+                class="full-page-slid-change-btn is-prev"
+                title="前へ"
+                aria-label="前へ"
+                data-js-trigger="slid-prev"
+              ></button>
+            </div>
+            <div class="full-page-slider-cnt-box swiper-container">
+              <ul class="full-page-slider-items swiper-wrapper">
+                <li class="full-page-slider-item swiper-slide">
+                  <div class="full-page-slid"></div>
+                </li>
+                <li class="full-page-slider-item swiper-slide">
+                  <div class="full-page-slid"></div>
+                </li>
+              </ul>
+            </div>
+            <div class="full-page-slid-change-btn-box is-next">
+              <button
+                class="full-page-slid-change-btn is-next"
+                title="次へ"
+                aria-label="次へ"
+                data-js-trigger="slid-next"
+              ></button>
+            </div>
           </div>
         </div>
+        <!-- /.inner -->
         <div class="full-page-slider is-bg" data-js-target="slider-bg">
           <div class="full-page-slider-cnt-box swiper-container">
             <ul class="full-page-slider-items swiper-wrapper">
@@ -163,6 +166,9 @@ export default {
           threshold: 50,
           touchAngle: 60,
           roundLengths: false,
+          mousewheel: {
+            invert: false
+          },
           // スライダーを連携させる
           controller: {
             control: this.slider.main,
@@ -201,18 +207,21 @@ export default {
 .full-page-slider-box {
   width: 100%;
   height: 100%;
+  .inner {
+    height: 100%;
+  }
 }
 .full-page-slider {
   position: relative;
   width: 100%;
   height: 100%;
   &.is-main {
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: $z-index--full-page-slider-1;
   }
   &.is-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     .full-page-slid {
       &:before {
         content: '';
@@ -243,6 +252,41 @@ export default {
   }
   &.is-next {
     right: 0;
+  }
+}
+.full-page-slid-change-btn:not(:root) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  &:after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-left: 4px solid #252c41;
+    border-bottom: 4px solid #252c41;
+  }
+  &.is-prev {
+    &:after {
+      transform: rotate(45deg);
+      border-color: $palette-blue--1;
+    }
+  }
+  &.is-next {
+    &:after {
+      transform: rotate(230deg);
+      border-color: $palette-red--1;
+    }
   }
 }
 .full-page-slider-cnt-box {
