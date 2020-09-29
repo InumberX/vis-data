@@ -2,7 +2,7 @@
   <div class="full-page-wrap" :style="{ height: height }">
     <div class="full-page-box">
       <div class="full-page-slider-box" id="full-page-slider">
-        <div class="full-page-slider" data-js-target="slider">
+        <div class="full-page-slider is-main" data-js-target="slider">
           <div class="full-page-slid-change-btn-box is-prev">
             <button
               class="full-page-slid-change-btn is-prev"
@@ -11,6 +11,26 @@
               data-js-trigger="slid-prev"
             ></button>
           </div>
+          <div class="full-page-slider-cnt-box swiper-container">
+            <ul class="full-page-slider-items swiper-wrapper">
+              <li class="full-page-slider-item swiper-slide">
+                <div class="full-page-slid"></div>
+              </li>
+              <li class="full-page-slider-item swiper-slide">
+                <div class="full-page-slid"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="full-page-slid-change-btn-box is-next">
+            <button
+              class="full-page-slid-change-btn is-next"
+              title="次へ"
+              aria-label="次へ"
+              data-js-trigger="slid-next"
+            ></button>
+          </div>
+        </div>
+        <div class="full-page-slider is-bg" data-js-target="slider-bg">
           <div class="full-page-slider-cnt-box swiper-container">
             <ul class="full-page-slider-items swiper-wrapper">
               <li class="full-page-slider-item swiper-slide">
@@ -26,14 +46,6 @@
                 ></div>
               </li>
             </ul>
-          </div>
-          <div class="full-page-slid-change-btn-box is-next">
-            <button
-              class="full-page-slid-change-btn is-next"
-              title="次へ"
-              aria-label="次へ"
-              data-js-trigger="slid-next"
-            ></button>
           </div>
         </div>
       </div>
@@ -54,7 +66,10 @@ export default {
   data: function() {
     return {
       height: 'auto',
-      slider: null
+      slider: {
+        main: null,
+        bg: null
+      }
     };
   },
   created: function() {
@@ -75,7 +90,7 @@ export default {
       const btnNext = slider.querySelector('[data-js-trigger="slid-next"]');
       const btnPrev = slider.querySelector('[data-js-trigger="slid-prev"]');
 
-      this.slider = new Swiper(swiperContainer, {
+      this.slider.main = new Swiper(swiperContainer, {
         // 一番最初に表示させるスライド
         initialSlide: 0,
         // 最後のスライドまで到達した場合、最初に戻らずに続けてスライド可能にするか
@@ -124,7 +139,41 @@ export default {
         }
       });
 
-      console.log(this.slider);
+      const sliderBg = sliderBox.querySelector('[data-js-target="slider-bg"]');
+
+      // 要素が存在する場合
+      if (sliderBg != null) {
+        const swiperBgContainer = sliderBg.querySelector('.swiper-container');
+
+        this.slider.bg = new Swiper(swiperBgContainer, {
+          initialSlide: 0,
+          loop: true,
+          loopedSlides: 2,
+          speed: 1000,
+          slidesPerView: '1',
+          centeredSlides: false,
+          spaceBetween: 0,
+          direction: 'horizontal',
+          effect: 'fade',
+          autoplay: false,
+          pagination: false,
+          navigation: false,
+          autoHeight: false,
+          longSwipesRatio: 0.3,
+          threshold: 50,
+          touchAngle: 60,
+          roundLengths: false,
+          // スライダーを連携させる
+          controller: {
+            control: this.slider.main,
+            inverse: false,
+            by: 'slide'
+          }
+        });
+
+        // スライダーを連携させる
+        this.slider.main.controller.control = this.slider.bg;
+      }
     }
   },
   methods: {
@@ -157,6 +206,33 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  &.is-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $z-index--full-page-slider-1;
+  }
+  &.is-bg {
+    .full-page-slid {
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: radial-gradient(
+          circle,
+          transparent 0%,
+          transparent 20%,
+          $palette-black--1 80%,
+          $palette-black--1 100%
+        );
+        z-index: $z-index--2;
+      }
+    }
+  }
 }
 .full-page-slid-change-btn-box {
   position: absolute;
@@ -190,20 +266,5 @@ export default {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: radial-gradient(
-      transparent 0%,
-      transparent 20%,
-      $palette-black--1 100%
-    );
-    z-index: $z-index--2;
-  }
 }
 </style>
