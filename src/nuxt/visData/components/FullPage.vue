@@ -266,5 +266,6 @@ export default {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 }
 </style>
