@@ -23,11 +23,43 @@ export default {
     Footer: Footer,
     PageTitle: PageTitle
   },
+  data: function() {
+    return {
+      bodyClassNamePath: ''
+    };
+  },
   created: function() {},
-  methods: {},
+  mounted: function() {
+    this.changeBodyClassName();
+  },
+  methods: {
+    changeBodyClassName: function() {
+      const path = this.$route.path;
+      const body = document.body;
+
+      if (this.bodyClassNamePath !== '') {
+        body.classList.remove(this.bodyClassNamePath);
+      }
+
+      this.bodyClassNamePath = '';
+
+      for (
+        let i = 0, iLength = metaConfig.length;
+        i < iLength;
+        i = (i + 1) | 0
+      ) {
+        if (metaConfig[i].route === path) {
+          this.bodyClassNamePath = 'is-' + metaConfig[i].id;
+          break;
+        }
+      }
+
+      body.classList.add(this.bodyClassNamePath);
+    }
+  },
   watch: {
     path: function() {
-      console.log(this.$route.path);
+      this.changeBodyClassName();
     }
   },
   computed: {
