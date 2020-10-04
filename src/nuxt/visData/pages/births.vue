@@ -1,5 +1,5 @@
 <template>
-  <div>population</div>
+  <div>births</div>
 </template>
 
 <script>

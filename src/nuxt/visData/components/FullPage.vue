@@ -14,11 +14,15 @@
             </div>
             <div class="full-page-slider-cnt-box swiper-container">
               <ul class="full-page-slider-items swiper-wrapper">
-                <li class="full-page-slider-item swiper-slide">
-                  <div class="full-page-slid"></div>
-                </li>
-                <li class="full-page-slider-item swiper-slide">
-                  <div class="full-page-slid"></div>
+                <li
+                  class="full-page-slider-item swiper-slide"
+                  v-for="(item, i) in slide"
+                  :key="item.id"
+                >
+                  <nuxt-link
+                    :to="item.route"
+                    class="full-page-slid-link full-page-slid"
+                  ></nuxt-link>
                 </li>
               </ul>
             </div>
@@ -36,17 +40,16 @@
         <div class="full-page-slider is-bg" data-js-target="slider-bg">
           <div class="full-page-slider-cnt-box swiper-container">
             <ul class="full-page-slider-items swiper-wrapper">
-              <li class="full-page-slider-item swiper-slide">
-                <div
-                  class="full-page-slid"
-                  style="background-image: url(/img/img_main_visual_01.jpg)"
-                ></div>
-              </li>
-              <li class="full-page-slider-item swiper-slide">
-                <div
-                  class="full-page-slid"
-                  style="background-image: url(/img/img_main_visual_02.jpg)"
-                ></div>
+              <li
+                class="full-page-slider-item swiper-slide"
+                v-for="(item, i) in slide"
+                :key="item.id"
+              >
+                <nuxt-link
+                  :to="item.route"
+                  class="full-page-slid-link full-page-slid"
+                  :style="[{ 'background-image': 'url(' + item.img + ')' }]"
+                ></nuxt-link>
               </li>
             </ul>
           </div>
@@ -64,11 +67,18 @@ import 'swiper/swiper-bundle.css';
 
 import metaConfig from '~/config/meta';
 
+let slide = [];
+
+for (let i = 1, iLength = metaConfig.length; i < iLength; i = (i + 1) | 0) {
+  slide.push(metaConfig[i]);
+}
+
 export default {
   components: {},
   data: function() {
     return {
       height: 'auto',
+      slide: slide,
       slider: {
         main: null,
         bg: null
@@ -317,5 +327,8 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+.full-page-slid-link {
+  display: block;
 }
 </style>

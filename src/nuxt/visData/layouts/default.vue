@@ -24,7 +24,6 @@ export default {
     PageTitle: PageTitle
   },
   created: function() {},
-  // 各処理
   methods: {},
   watch: {
     path: function() {
