@@ -1,5 +1,5 @@
 <template>
-  <div>births</div>
+  <div class="cnt-wrap">births</div>
 </template>
 
 <script>

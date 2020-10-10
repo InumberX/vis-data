@@ -87,9 +87,9 @@ export default {
   left: 0;
   transform: translate(0, 0);
   z-index: $z-index--page-ttl-1;
-  transition: 0.3s top, 0.3s left, 0.3s transform;
+  transition: 0.3s top, 0.3s left, 0.3s transform, 0.3s padding;
   width: 100%;
-  padding-top: 56px;
+  padding-top: 80px;
 }
 .page-ttl-box {
   position: relative;

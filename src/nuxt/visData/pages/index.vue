@@ -1,14 +1,19 @@
 <template>
-  <FullPage />
+  <div class="v-fragment">
+    <SlideTitle />
+    <FullPage />
+  </div>
 </template>
 
 <script>
 import metaMixin from '~/mixins/meta';
+import SlideTitle from '~/components/common/SlideTitle.vue';
 import FullPage from '~/components/FullPage.vue';
 
 export default {
   mixins: [metaMixin],
   components: {
+    SlideTitle: SlideTitle,
     FullPage: FullPage
   },
   data: function() {

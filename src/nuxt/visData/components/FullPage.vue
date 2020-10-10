@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
@@ -91,6 +92,8 @@ export default {
     }
   },
   mounted: function() {
+    const self = this;
+
     // リサイズ時にコンテンツの高さを設定する処理を設定
     window.addEventListener('resize', this.setHeight, false);
 
@@ -149,6 +152,20 @@ export default {
         // マウスホイールでスライダーを操作できるようにするか
         mousewheel: {
           invert: false
+        },
+        // 各種イベント
+        on: {
+          slideChange: function() {
+            if (self.slider.main != null) {
+              const num = self.slider.main.realIndex;
+
+              if (num < self.slide.length) {
+                const slideInfo = self.slide[num];
+                self.$store.commit('slide_info/setTitleEn', slideInfo.titleEn);
+                self.$store.commit('slide_info/setTitle', slideInfo.title);
+              }
+            }
+          }
         }
       });
 
