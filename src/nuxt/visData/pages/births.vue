@@ -1,5 +1,5 @@
 <template>
-  <div class="cnt-wrap">births</div>
+  <div class="cnt-wrap" :key="pageKey">births</div>
 </template>
 
 <script>

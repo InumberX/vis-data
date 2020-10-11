@@ -280,6 +280,7 @@ export default {
   position: absolute;
   top: 50%;
   z-index: $z-index--3;
+  margin-top: -80px;
   &.is-prev {
     left: 0;
   }
@@ -300,7 +301,7 @@ export default {
   box-sizing: border-box;
   background-color: transparent;
   width: 40px;
-  height: 40px;
+  height: 160px;
   &:after {
     content: '';
     display: block;

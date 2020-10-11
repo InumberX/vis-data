@@ -34,5 +34,10 @@ export default {
     }
 
     return meta;
+  },
+  computed: {
+    pageKey: function() {
+      return this.$route.name;
+    }
   }
 };

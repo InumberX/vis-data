@@ -1,5 +1,5 @@
 <template>
-  <div class="v-fragment">
+  <div class="v-fragment" :key="pageKey">
     <SlideTitle />
     <FullPage />
   </div>

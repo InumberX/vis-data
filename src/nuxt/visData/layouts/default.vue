@@ -67,4 +67,28 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+/* ページ遷移アニメーション */
+.va-page {
+  &-enter {
+    &-active {
+      transition: opacity 0.8s, 0.8s transform;
+    }
+    opacity: 0 !important;
+    &-to {
+      opacity: 1 !important;
+    }
+  }
+  &-leave {
+    &-active {
+      transition: opacity 1.2s, 1.2s transform;
+    }
+    opacity: 1 !important;
+    transform: scale(1);
+    &-to {
+      opacity: 0 !important;
+      transform: scale(2);
+    }
+  }
+}
+</style>

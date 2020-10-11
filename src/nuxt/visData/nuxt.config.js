@@ -41,6 +41,11 @@ export default {
       });
     }
   },
+  // ページ遷移の設定
+  pageTransition: {
+    name: 'va-page',
+    mode: 'out-in'
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s | ' + title,
