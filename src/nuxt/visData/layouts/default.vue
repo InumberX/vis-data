@@ -49,7 +49,9 @@ export default {
         }
       }
 
-      body.classList.add(this.bodyClassNamePath);
+      if (this.bodyClassNamePath !== '') {
+        body.classList.add(this.bodyClassNamePath);
+      }
     }
   },
   watch: {
