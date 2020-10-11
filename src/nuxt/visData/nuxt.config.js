@@ -12,7 +12,8 @@ const title = 'vis:Data';
 const protocol = 'https://';
 const domain = 'vis-data.netlify.app';
 const url = protocol + domain;
-const description = 'description';
+const description =
+  '「vis:Data（ビズデータ）」は、様々なデータをグラフなどを用いてビジュアル的に表現することを目的としたサイトです。';
 
 export default {
   env: {
