@@ -136,10 +136,11 @@ export default {
   display: inline-block;
 }
 .slide-ttl-sub {
-  display: inline-block;
+  display: block;
   font-size: 2rem;
   font-weight: 400;
   transition: 0.3s font-size;
+  line-height: 1;
 }
 .slide-ttl-mn-box {
   display: block;
