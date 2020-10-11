@@ -1,9 +1,7 @@
 <template>
   <div class="wrap-all">
     <Header />
-    <main class="mn-wrap">
-      <Nuxt />
-    </main>
+    <Nuxt />
     <Footer />
   </div>
 </template>

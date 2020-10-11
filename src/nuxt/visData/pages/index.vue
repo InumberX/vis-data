@@ -1,8 +1,8 @@
 <template>
-  <div class="v-fragment" :key="pageKey">
+  <main class="mn-wrap is-top" :key="pageKey">
     <SlideTitle />
     <FullPage />
-  </div>
+  </main>
 </template>
 
 <script>
