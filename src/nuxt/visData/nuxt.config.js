@@ -11,7 +11,7 @@ const cashBuster =
 const title = 'vis:Data';
 const protocol = 'https://';
 const domain = 'vis-data.netlify.app';
-const url = protocol + domain + '/';
+const url = protocol + domain;
 const description = 'description';
 
 export default {
@@ -53,11 +53,87 @@ export default {
       lang: 'ja'
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: description }
+      {
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover'
+      },
+      {
+        hid: 'X-UA-Compatible',
+        'http-equiv': 'X-UA-Compatible',
+        content: 'IE=edge'
+      },
+      {
+        hid: 'format-detection',
+        name: 'format-detection',
+        content: 'telephone=no'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: description
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: url + '/img/img_og_1.png'
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: title
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: description
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@InumberX'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: description
+      },
+      {
+        hid: 'theme-color',
+        name: 'theme-color',
+        content: '#12c2e9'
+      }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        hid: 'icon',
+        rel: 'icon',
+        href: '/img/favicon.ico'
+      },
+      {
+        hid: 'apple-touch-icon',
+        rel: 'apple-touch-icon',
+        href: '/img/favicon_180.png'
+      },
+      {
+        hid: 'appleTouchIcon',
+        rel: 'apple-touch-icon',
+        href: '/img/favicon.png'
+      }
+    ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -101,5 +177,58 @@ export default {
       font: () => 'font/[name].[ext]' + cashBuster,
       video: () => 'video/[name].[ext]' + cashBuster
     }
+  },
+  // PWA
+  manifest: {
+    name: title,
+    title: title,
+    lang: 'ja',
+    theme_color: '#12c2e9',
+    background_color: '#111111',
+    display: 'standalone',
+    scope: '/',
+    start_url: url + '/',
+    icons: [
+      {
+        src: 'img/favicon_72.png',
+        sizes: '72x72',
+        type: 'image/png'
+      },
+      {
+        src: 'img/favicon_96.png',
+        sizes: '96x96',
+        type: 'image/png'
+      },
+      {
+        src: 'img/favicon_128.png',
+        sizes: '128x128',
+        type: 'image/png'
+      },
+      {
+        src: 'img/favicon_144.png',
+        sizes: '144x144',
+        type: 'image/png'
+      },
+      {
+        src: 'img/favicon_152.png',
+        sizes: '152x152',
+        type: 'image/png'
+      },
+      {
+        src: 'img/favicon_192.png',
+        sizes: '192x192',
+        type: 'image/png'
+      },
+      {
+        src: 'img/favicon_384.png',
+        sizes: '384x384',
+        type: 'image/png'
+      },
+      {
+        src: 'img/favicon_512.png',
+        sizes: '512x512',
+        type: 'image/png'
+      }
+    ]
   }
 };

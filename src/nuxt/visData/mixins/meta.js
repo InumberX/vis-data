@@ -11,7 +11,8 @@ export default {
     const path = this.$route.path;
     let meta = {
       title: '',
-      meta: []
+      meta: [],
+      link: []
     };
     let metaTargetNum = 0;
 
@@ -23,13 +24,24 @@ export default {
       }
     }
 
-    if (metaTargetNum === 0) {
-      meta.titleTemplate = '';
-    }
-
     const targetMeta = metaConfig[metaTargetNum];
 
     meta.title = targetMeta.title;
+
+    if (metaTargetNum === 0) {
+      meta.meta.push({
+        hid: 'og:title',
+        property: 'og:title',
+        content: meta.title
+      });
+      meta.titleTemplate = '';
+    } else {
+      meta.meta.push({
+        hid: 'og:title',
+        property: 'og:title',
+        content: meta.title + ' | ' + process.env.title
+      });
+    }
 
     if (targetMeta.description != null) {
       meta.meta.push({
@@ -37,7 +49,31 @@ export default {
         name: 'description',
         content: targetMeta.description
       });
+
+      meta.meta.push({
+        hid: 'og:description',
+        name: 'og:description',
+        content: targetMeta.description
+      });
+
+      meta.meta.push({
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: targetMeta.description
+      });
     }
+
+    meta.meta.push({
+      hid: 'og:url',
+      property: 'og:url',
+      content: process.env.url + targetMeta.route
+    });
+
+    meta.link.push({
+      hid: 'canonical',
+      rel: 'canonical',
+      href: process.env.url + targetMeta.route
+    });
 
     return meta;
   },
