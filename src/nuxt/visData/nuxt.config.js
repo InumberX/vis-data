@@ -84,7 +84,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: url + '/img/img_og_1.png'
+        content: url + '/img/img_og.png'
       },
       {
         hid: 'og:site_name',
