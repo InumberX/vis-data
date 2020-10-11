@@ -106,13 +106,24 @@ export default {
       const btnNext = slider.querySelector('[data-js-trigger="slid-next"]');
       const btnPrev = slider.querySelector('[data-js-trigger="slid-prev"]');
 
+      // 初期表示時のスライド番号を設定
+      let slideStartNum = 0;
+      for (let i = 0, iLength = slide.length; i < iLength; i = (i + 1) | 0) {
+        if (self.$store.state.slide_info.title === slide[i].title) {
+          slideStartNum = i;
+        }
+      }
+
+      // スライドの枚数
+      const loopedSlides = this.slide.length;
+
       this.slider.main = new Swiper(swiperContainer, {
         // 一番最初に表示させるスライド
-        initialSlide: 0,
+        initialSlide: slideStartNum,
         // 最後のスライドまで到達した場合、最初に戻らずに続けてスライド可能にするか
         loop: true,
         // スライドの枚数
-        loopedSlides: 2,
+        loopedSlides: loopedSlides,
         // スライドが切り替わるトランジション時間（ミリ秒）
         speed: 1000,
         // 何枚のスライドを表示するか
@@ -176,9 +187,9 @@ export default {
         const swiperBgContainer = sliderBg.querySelector('.swiper-container');
 
         this.slider.bg = new Swiper(swiperBgContainer, {
-          initialSlide: 0,
+          initialSlide: slideStartNum,
           loop: true,
-          loopedSlides: 2,
+          loopedSlides: loopedSlides,
           speed: 1000,
           slidesPerView: '1',
           centeredSlides: false,
