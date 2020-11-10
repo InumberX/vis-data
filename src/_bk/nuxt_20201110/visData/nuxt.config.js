@@ -134,18 +134,6 @@ export default {
         rel: 'apple-touch-icon',
         href: '/img/favicon.png'
       }
-    ],
-    script: [
-      {
-        src: '/js/dat.gui.min.js' + cashBuster,
-        defer: true,
-        body: false
-      },
-      {
-        src: '/js/web-gl-fluid.js' + cashBuster,
-        defer: true,
-        body: false
-      }
     ]
   },
 

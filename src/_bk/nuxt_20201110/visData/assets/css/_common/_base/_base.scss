@@ -24,6 +24,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+body.is-top {
+  overflow: hidden;
+}
 
 article,
 aside,
@@ -306,7 +309,15 @@ th {
 
 /* mn-wrap */
 .mn-wrap {
+  padding: 56px 0 48px;
+}
+.mn-wrap.is-top {
   padding: 0;
+}
+@media screen and (min-width: $bp--sp), print {
+  .mn-wrap {
+    padding-top: 64px;
+  }
 }
 
 /* Vue =========== */

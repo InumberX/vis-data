@@ -1,17 +1,17 @@
 <template>
   <main class="mn-wrap" :key="pageKey">
-    <MainVisual />
+    <PageTitle :title="pageTitle" :titleEn="pageTitleEn" />
   </main>
 </template>
 
 <script>
 import metaMixin from '~/mixins/meta';
-import MainVisual from '~/components/MainVisual.vue';
+import PageTitle from '~/components/common/PageTitle.vue';
 
 export default {
   mixins: [metaMixin],
   components: {
-    MainVisual: MainVisual
+    PageTitle: PageTitle
   },
   data: function() {
     return {};

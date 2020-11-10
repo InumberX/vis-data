@@ -44,6 +44,11 @@ export default {
 @import '~assets/css/_common/variable';
 
 .ft-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
   width: 100%;
   background-color: transparent;
   z-index: $z-index--footer-1;
