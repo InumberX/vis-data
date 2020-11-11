@@ -15,7 +15,7 @@
             <h1 class="mv-ttl-tx">
               <span class="mv-ttl-tx-mn">Visualize Data</span>
               <span class="mv-ttl-tx-sub"
-                >「vis:Data（ビズデータ）」は、様々なデータをグラフなどを用いてビジュアル的に表現することを目的としたサイトです</span
+                >「vis:Data（ビズデータ）」は、様々なデータをグラフなどを用いてビジュアル的に表現することを目的としたサイトです。</span
               >
             </h1>
           </div>
