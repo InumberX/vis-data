@@ -243,5 +243,32 @@ export default {
         type: 'image/png'
       }
     ]
+  },
+  workbox: {
+    offline: false,
+    skipWaiting: true,
+    clientsClaim: true,
+    runtimeCaching: [
+      {
+        // 求人検索APIから取得した結果
+        urlPattern: '/*.html',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheExpiration: {
+            maxAgeSeconds: 0
+          },
+          cacheableResponse: {
+            statuses: [200]
+          }
+        }
+      },
+      {
+        // デフォルト（最後に記述する）
+        urlPattern: '/*',
+        handler: 'networkFirst',
+        method: 'GET'
+      }
+    ]
   }
 };
