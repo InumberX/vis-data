@@ -1,5 +1,5 @@
 <template>
-  <div class="mv-wrap">
+  <div class="mv-wrap" :style="{ height: height }">
     <transition name="va-fade">
       <div v-if="!flgInitMv" class="mv-loading-box">
         <i v-if="flgShowLoadingCircle" class="mv-loading-circle"></i>
@@ -36,16 +36,29 @@ export default {
   components: {},
   data: function() {
     return {
+      height: '',
       flgInitMv: false,
       flgShowLoadingTx: false,
       flgShowLoadingCircle: false
     };
   },
-  created: function() {},
+  created: function() {
+    if (process.browser) {
+      this.setHeight();
+    }
+  },
   mounted: function() {
+    // リサイズ時にコンテンツの高さを設定する処理を設定
+    window.addEventListener('resize', this.setHeight, false);
+
     this.initMv();
   },
   methods: {
+    // コンテンツの高さを設定する処理
+    setHeight: function() {
+      this.height = window.innerHeight + 'px';
+    },
+    // メインビジュアルを初期化する処理
     initMv: function() {
       const self = this;
 
@@ -190,6 +203,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   &:before {
     content: '';
     display: block;
