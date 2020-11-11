@@ -1,0 +1,18 @@
+/* Vue =========== */
+[v-cloak] {
+  display: none !important;
+}
+
+/* Vueアニメーション：フェード */
+.va-fade-enter-active,
+.va-fade-leave-active {
+  transition: 0.3s opacity;
+}
+.va-fade-enter,
+.va-fade-leave-to {
+  opacity: 0 !important;
+}
+.va-fade-enter-to,
+.va-fade-leave {
+  opacity: 1 !important;
+}

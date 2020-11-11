@@ -45,7 +45,7 @@ function initWebGlFluid() {
     COLORFUL: true,
     COLOR_UPDATE_SPEED: 10,
     PAUSED: false,
-    BACK_COLOR: { r: 33, g: 33, b: 33 },
+    BACK_COLOR: { r: 17, g: 17, b: 17 },
     TRANSPARENT: false,
     BLOOM: true,
     BLOOM_ITERATIONS: 8,

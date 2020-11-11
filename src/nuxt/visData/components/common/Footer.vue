@@ -45,12 +45,10 @@ export default {
 
 .ft-wrap {
   width: 100%;
-  background-color: transparent;
-  z-index: $z-index--footer-1;
 }
 .ft-copy-wrap {
   margin: 0;
-  padding: 16px 0;
+  padding: 24px 0;
 }
 .ft-copy {
   text-align: right;
