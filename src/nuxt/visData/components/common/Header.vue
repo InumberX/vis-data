@@ -189,7 +189,7 @@ export default {
   width: 120px;
   height: 32px;
 }
-@media screen and (min-width: $bp--sp), print {
+@media screen and (min-width: $bp--sm), print {
   .hd-wrap {
     height: 64px;
   }

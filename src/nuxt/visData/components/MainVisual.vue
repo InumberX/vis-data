@@ -1,9 +1,9 @@
 <template>
   <div class="mv-wrap" :style="{ height: height }">
-    <transition name="va-fade">
+    <transition name="va-fade-mv">
       <div v-if="!flgInitMv" class="mv-loading-box">
         <i v-if="flgShowLoadingCircle" class="mv-loading-circle"></i>
-        <transition name="va-fade">
+        <transition name="va-fade-mv-tx">
           <span v-if="flgShowLoadingTx" class="mv-loading-tx">Now Loading</span>
         </transition>
       </div>
@@ -15,7 +15,9 @@
             <h1 class="mv-ttl-tx">
               <span class="mv-ttl-tx-mn">Visualize Data</span>
               <span class="mv-ttl-tx-sub"
-                >「vis:Data（ビズデータ）」は、様々なデータをグラフなどを用いてビジュアル的に表現することを目的としたサイトです。</span
+                >「vis:Data（ビズデータ）」は、様々なデータをグラフなどを用いて<br
+                  class="md-obj"
+                />ビジュアル的に表現することを目的としたサイトです。</span
               >
             </h1>
           </div>
@@ -80,9 +82,9 @@ export default {
 
           setTimeout(() => {
             initWebGlFluid();
-          }, 310);
-        }, 4510);
-      }, 300);
+          }, 610);
+        }, 5000);
+      }, 610);
     }
   }
 };
@@ -256,7 +258,6 @@ export default {
   display: block;
   font-size: 1.6rem;
   font-weight: 400;
-  max-width: 620px;
   &:before {
     content: '';
     display: block;
@@ -268,7 +269,30 @@ export default {
     left: 0;
   }
 }
-@media screen and (min-width: $bp--sp), print {
+.va-fade-mv-leave-active {
+  transition: 0.6s opacity;
+}
+.va-fade-mv-leave-to {
+  opacity: 0 !important;
+}
+.va-fade-mv-leave {
+  opacity: 1 !important;
+}
+.va-fade-mv-tx-enter-active {
+  transition: 0.6s opacity;
+}
+.va-fade-mv-tx-leave-active {
+  transition: 0.6s opacity;
+}
+.va-fade-mv-tx-enter,
+.va-fade-mv-tx-leave-to {
+  opacity: 0 !important;
+}
+.va-fade-mv-tx-enter-to,
+.va-fade-mv-tx-leave {
+  opacity: 1 !important;
+}
+@media screen and (min-width: $bp--sm), print {
   .mv-ttl-tx {
     font-size: 5.6rem;
   }

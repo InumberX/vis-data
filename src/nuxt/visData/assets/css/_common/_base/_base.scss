@@ -221,7 +221,7 @@ th {
   padding: 0;
 }
 
-@media screen and (min-width: $bp--sp), print {
+@media screen and (min-width: $bp--sm), print {
   body {
     font-size: 1.8rem;
   }
@@ -253,11 +253,45 @@ th {
   display: none;
 }
 
-@media screen and (min-width: $bp--sp), print {
+.sm-obj {
+  display: none;
+}
+
+.md-obj {
+  display: none;
+}
+
+.lg-obj {
+  display: none;
+}
+
+.xl-obj {
+  display: none;
+}
+
+@media screen and (min-width: $bp--sm), print {
   .sp-obj {
     display: none;
   }
   .pc-obj {
+    display: block;
+  }
+  .sm-obj {
+    display: block;
+  }
+}
+@media screen and (min-width: $bp--md), print {
+  .md-obj {
+    display: block;
+  }
+}
+@media screen and (min-width: $bp--lg), print {
+  .lg-obj {
+    display: block;
+  }
+}
+@media screen and (min-width: $bp--xl), print {
+  .xl-obj {
     display: block;
   }
 }
@@ -298,7 +332,7 @@ th {
   box-sizing: border-box;
 }
 
-@media screen and (min-width: $bp--sp), print {
+@media screen and (min-width: $bp--sm), print {
   .inner {
     padding: 0 4.6vw;
   }

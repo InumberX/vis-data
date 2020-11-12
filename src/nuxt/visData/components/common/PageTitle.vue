@@ -87,7 +87,7 @@ export default {
   padding-left: 16px;
   line-height: 1;
 }
-@media screen and (min-width: $bp--sp), print {
+@media screen and (min-width: $bp--sm), print {
   .page-ttl-wrap {
     margin-top: 32px;
   }
