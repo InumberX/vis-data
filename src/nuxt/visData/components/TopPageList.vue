@@ -61,6 +61,11 @@ export default {
 // 変数
 @import '~assets/css/_common/variable';
 
+.top-page-list-wrap {
+  position: relative;
+  z-index: $z-index--1;
+  background-color: $palette-black--1;
+}
 .page-list-wrap {
   position: relative;
 }
