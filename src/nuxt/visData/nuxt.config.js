@@ -246,8 +246,8 @@ export default {
     runtimeCaching: [
       {
         // 求人検索APIから取得した結果
-        urlPattern: '/*.html',
-        handler: 'cacheFirst',
+        urlPattern: '/*',
+        handler: 'networkFirst',
         method: 'GET',
         strategyOptions: {
           cacheExpiration: {

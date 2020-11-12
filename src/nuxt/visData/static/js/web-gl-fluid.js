@@ -1659,9 +1659,9 @@ function initWebGlFluid() {
       webGlFluidPosYNum =
         Math.floor(Math.random() * webGlFluidPosMaxNum) + webGlFluidPosMinNum;
 
-      setTimeout(webGlFluidTimer, 30);
+      setTimeout(webGlFluidTimer, 20);
     } else {
-      setTimeout(webGlFluidTimer, 100);
+      setTimeout(webGlFluidTimer, 60);
     }
   };
 

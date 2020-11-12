@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex';
 import metaConfig from '~/config/meta';
 // コンポーネント読み込み
 import Header from '~/components/common/Header.vue';
