@@ -23,12 +23,15 @@
           </div>
         </div>
       </div>
+      <!-- /.inner -->
     </div>
+    <!-- /.mv-ttl-wrap -->
     <div class="mv-canvas-box">
       <canvas id="mv-canvas" class="mv-canvas"></canvas>
     </div>
   </div>
-  <!-- /.full-page-wrap -->
+  <!-- /.mv-canvas-box -->
+  <!-- /.mv-wrap -->
 </template>
 
 <script>
@@ -46,6 +49,11 @@ export default {
   },
   created: function() {
     if (process.browser) {
+      if (this.storeFlgInitPage) {
+        this.flgInitMv = true;
+      } else {
+        this.$store.commit('init_page/setFlgInitPageTrue');
+      }
       this.setHeight();
     }
   },
@@ -53,7 +61,11 @@ export default {
     // リサイズ時にコンテンツの高さを設定する処理を設定
     window.addEventListener('resize', this.setHeight, false);
 
-    this.initMv();
+    if (!this.flgInitMv) {
+      this.initMv();
+    } else {
+      this.startFluidAnimation();
+    }
   },
   methods: {
     // コンテンツの高さを設定する処理
@@ -81,10 +93,19 @@ export default {
           body.style.top = '';
 
           setTimeout(() => {
-            initWebGlFluid();
+            self.startFluidAnimation();
           }, 610);
         }, 5000);
       }, 610);
+    },
+    // 流体アニメーションを開始する処理
+    startFluidAnimation: function() {
+      initWebGlFluid();
+    }
+  },
+  computed: {
+    storeFlgInitPage: function() {
+      return this.$store.state.init_page.flgInitPage;
     }
   }
 };

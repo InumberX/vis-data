@@ -72,7 +72,7 @@ export default {
 .va-page {
   &-enter {
     &-active {
-      transition: opacity 0.8s, 0.8s transform;
+      transition: opacity 0.6s;
     }
     opacity: 0 !important;
     &-to {
@@ -81,13 +81,11 @@ export default {
   }
   &-leave {
     &-active {
-      transition: opacity 1.2s, 1.2s transform;
+      transition: opacity 0.6s;
     }
     opacity: 1 !important;
-    transform: scale(1);
     &-to {
       opacity: 0 !important;
-      transform: scale(2);
     }
   }
 }

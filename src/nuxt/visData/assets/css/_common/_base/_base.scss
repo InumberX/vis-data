@@ -346,5 +346,13 @@ th {
 
 /* mn-wrap */
 .mn-wrap {
-  padding: 0;
+  padding: 56px 0 0;
+  &.is-top {
+    padding-top: 0;
+  }
+}
+@media screen and (min-width: $bp--sm), print {
+  .mn-wrap {
+    padding-top: 64px;
+  }
 }

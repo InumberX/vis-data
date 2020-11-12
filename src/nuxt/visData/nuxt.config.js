@@ -29,11 +29,6 @@ export default {
   router: {
     linkActiveClass: 'active',
     linkExactActiveClass: 'exact-active',
-    // ページ遷移時の設定
-    scrollBehavior: function(to, from, savedPosition) {
-      // トップまでスクロールする
-      return { x: 0, y: 0 };
-    },
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'notFound',
@@ -60,7 +55,7 @@ export default {
       {
         name: 'viewport',
         content:
-          'width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover'
+          'width=device-width, initial-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover'
       },
       {
         hid: 'X-UA-Compatible',

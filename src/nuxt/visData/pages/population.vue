@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex';
 import metaMixin from '~/mixins/meta';
 import PageTitle from '~/components/common/PageTitle.vue';
 
@@ -15,6 +16,13 @@ export default {
   },
   data: function() {
     return {};
+  },
+  created: function() {
+    if (process.browser) {
+      if (!this.storeFlgInitPage) {
+        this.$store.commit('init_page/setFlgInitPageTrue');
+      }
+    }
   },
   mounted: function() {}
 };

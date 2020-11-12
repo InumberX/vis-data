@@ -45,6 +45,7 @@ export default {
 
 .ft-wrap {
   width: 100%;
+  margin-top: 40px;
 }
 .ft-copy-wrap {
   margin: 0;
@@ -52,7 +53,15 @@ export default {
 }
 .ft-copy {
   text-align: right;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0;
+}
+@media screen and (min-width: $bp--sm), print {
+  .ft-wrap {
+    margin-top: 64px;
+  }
+  .ft-copy-wrap {
+    padding: 40px 0;
+  }
 }
 </style>
