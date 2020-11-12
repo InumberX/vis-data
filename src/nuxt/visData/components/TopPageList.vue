@@ -65,6 +65,12 @@ export default {
   position: relative;
   z-index: $z-index--1;
   background-color: $palette-black--1;
+  margin-top: 40px;
+  .page-list-wrap {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
 }
 .page-list-wrap {
   position: relative;
@@ -142,6 +148,9 @@ export default {
   margin: 0;
 }
 @media screen and (min-width: $bp--sm), print {
+  .top-page-list-wrap {
+    margin-top: 56px;
+  }
   .page-list-img-box {
     position: relative;
     top: auto;
@@ -161,6 +170,9 @@ export default {
   }
 }
 @media screen and (min-width: $bp--md), print {
+  .top-page-list-wrap {
+    margin-top: 64px;
+  }
   .page-list-cnt-box {
     margin-top: -96px;
   }
