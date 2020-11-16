@@ -4,6 +4,7 @@
       v-for="(item, i) in pageList"
       class="page-list-wrap"
       :key="item.id"
+      :id="item.id"
     >
       <div class="inner">
         <div class="page-list-box">

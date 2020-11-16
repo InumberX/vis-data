@@ -82,11 +82,13 @@ export default {
   }
   &-leave {
     &-active {
-      transition: opacity 0.6s;
+      transition: opacity 0.6s, filter 0.6s;
     }
     opacity: 1 !important;
+    filter: blur(0) !important;
     &-to {
       opacity: 0 !important;
+      filter: blur(16px) !important;
     }
   }
 }
