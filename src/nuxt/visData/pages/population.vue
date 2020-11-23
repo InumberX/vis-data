@@ -49,8 +49,13 @@ export default {
     Select: Select
   },
   async asyncData({ store, $axios }) {
+    let url = process.env.url;
+    if (!process.server && location.hostname.indexOf('localhost') >= 0) {
+      url = process.env.urlLocal;
+    }
+
     if (store.state.pref.data.length <= 0) {
-      const resPref = await $axios.get('/json/pref.json');
+      const resPref = await $axios.get(url + '/json/pref.json');
       store.commit('pref/setData', resPref.data);
     }
 
@@ -69,7 +74,7 @@ export default {
       });
     }
 
-    const resPopulation = await $axios.get('/json/population.json');
+    const resPopulation = await $axios.get(url + '/json/population.json');
     return {
       pref: prefData,
       population: resPopulation.data

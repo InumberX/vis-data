@@ -22,10 +22,11 @@ export default {
     protocol: protocol,
     domain: domain,
     url: url,
+    urlLocal: 'http://localhost:3000',
     description: description
   },
   // Target (https://go.nuxtjs.dev/config-target)
-  target: 'server',
+  target: 'static',
   router: {
     linkActiveClass: 'active',
     linkExactActiveClass: 'exact-active',
