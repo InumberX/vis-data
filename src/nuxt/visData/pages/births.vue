@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import metaMixin from '~/mixins/meta';
+import mixinMeta from '~/mixins/meta';
 import PageTitle from '~/components/common/PageTitle.vue';
 
 export default {
-  mixins: [metaMixin],
+  mixins: [mixinMeta],
   components: {
     PageTitle: PageTitle
   },
@@ -20,4 +20,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

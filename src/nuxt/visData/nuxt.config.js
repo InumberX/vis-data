@@ -140,6 +140,11 @@ export default {
         src: '/js/web-gl-fluid.js' + cashBuster,
         defer: true,
         body: false
+      },
+      {
+        src: '/js/chart.min.js' + cashBuster,
+        defer: true,
+        body: false
       }
     ]
   },

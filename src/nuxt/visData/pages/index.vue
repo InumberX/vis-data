@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import metaMixin from '~/mixins/meta';
+import mixinMeta from '~/mixins/meta';
 import MainVisual from '~/components/MainVisual.vue';
 import TopPageList from '~/components/TopPageList.vue';
 
 export default {
-  mixins: [metaMixin],
+  mixins: [mixinMeta],
   components: {
     MainVisual: MainVisual,
     TopPageList: TopPageList
@@ -23,4 +23,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
