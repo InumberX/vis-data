@@ -129,8 +129,6 @@ export default {
           responsive: true
         };
 
-        console.log(target);
-
         let graphDataTotal = {
           type: 'line',
           label: '総人口',
@@ -151,8 +149,6 @@ export default {
         }
 
         graphData.datasets.push(graphDataTotal);
-
-        console.log(graphData);
 
         const ctx = document.getElementById('population-graph');
         this.populationGraph = new Chart(ctx, {

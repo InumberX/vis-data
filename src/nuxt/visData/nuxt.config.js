@@ -25,7 +25,7 @@ export default {
     description: description
   },
   // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static',
+  target: 'server',
   router: {
     linkActiveClass: 'active',
     linkExactActiveClass: 'exact-active',
