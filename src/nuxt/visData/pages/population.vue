@@ -106,7 +106,7 @@ export default {
     }
   },
   mounted: function() {
-    Chart.defaults.global.defaultFontColor = '#ffffff';
+    Chart.defaults.global.defaultFontColor = 'rgba(255, 255, 255, 1)';
     Chart.defaults.global.defaultFontFamily =
       '-apple-system, BlinkMacSystemFont, Lucida Grande, Helvetica, Arial, "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif';
     Chart.defaults.global.defaultFontSize = 10;
@@ -131,29 +131,77 @@ export default {
         };
 
         const graphOption = {
-          responsive: true
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  color: 'rgba(255, 255, 255, 0)'
+                }
+              }
+            ],
+            yAxes: [
+              {
+                gridLines: {
+                  color: 'rgba(255, 255, 255, 0.4)',
+                  zeroLineColor: 'rgba(255, 255, 255, 1)'
+                }
+              }
+            ]
+          }
         };
 
         let graphDataTotal = {
           type: 'line',
           label: '総人口',
           data: [],
-          borderColor: 'rgba(254, 97, 132, 1)',
-          pointBackgroundColor: 'rgba(254, 97, 132, 1)',
+          borderColor: 'rgba(246, 79, 89, 1)',
+          pointBackgroundColor: 'rgba(246, 79, 89, 1)',
           fill: false
         };
 
+        let graphDataOldAge = {
+          type: 'bar',
+          label: '老年人口',
+          data: [],
+          borderColor: 'rgba(169, 113, 237, 1)',
+          backgroundColor: 'rgba(169, 113, 237, 1)'
+        };
+
+        let graphDataYounger = {
+          type: 'bar',
+          label: '年少人口',
+          data: [],
+          borderColor: 'rgba(18, 164, 233, 1)',
+          backgroundColor: 'rgba(18, 164, 233, 1)'
+        };
+
+        let graphDataProduction = {
+          type: 'bar',
+          label: '生産年齢人口',
+          data: [],
+          borderColor: 'rgba(168, 255, 120, 1)',
+          backgroundColor: 'rgba(168, 255, 120, 1)'
+        };
+
         for (
-          let i = 0, iLength = target.line.data.length;
+          let i = 0, iLength = target.bar.data.length;
           i < iLength;
           i = (i + 1) | 0
         ) {
-          const thisLineData = target.line.data[i];
+          const thisLineData = target.bar.data[i];
           graphData.labels.push(thisLineData.year + '年');
-          graphDataTotal.data.push(thisLineData.value);
+          graphDataTotal.data.push(thisLineData.sum);
+          graphDataOldAge.data.push(thisLineData.class[0].value);
+          graphDataProduction.data.push(thisLineData.class[1].value);
+          graphDataYounger.data.push(thisLineData.class[2].value);
         }
 
         graphData.datasets.push(graphDataTotal);
+        graphData.datasets.push(graphDataOldAge);
+        graphData.datasets.push(graphDataYounger);
+        graphData.datasets.push(graphDataProduction);
 
         const ctx = document.getElementById('population-graph');
         this.populationGraph = new Chart(ctx, {
@@ -161,6 +209,16 @@ export default {
           data: graphData,
           options: graphOption
         });
+        this.setPopulationGraphHeight();
+      }
+    },
+    setPopulationGraphHeight: function() {
+      if (this.storeFlgSp) {
+        this.populationGraph.canvas.parentNode.style.height = '320px';
+      } else if (this.storeFlgTab) {
+        this.populationGraph.canvas.parentNode.style.height = '480px';
+      } else {
+        this.populationGraph.canvas.parentNode.style.height = '560px';
       }
     }
   },
@@ -176,17 +234,38 @@ export default {
       }
 
       this.initPopulationGraph();
+    },
+    storeFlgSp: function() {
+      this.setPopulationGraphHeight();
+    },
+    storeFlgTab: function() {
+      this.setPopulationGraphHeight();
+    },
+    storeFlgPc: function() {
+      this.setPopulationGraphHeight();
     }
   },
   computed: {
     storePref: function() {
       return this.$store.state.pref.data;
+    },
+    storeFlgSp: function() {
+      return this.$store.state.flg_bp.flgSp;
+    },
+    storeFlgTab: function() {
+      return this.$store.state.flg_bp.flgTab;
+    },
+    storeFlgPc: function() {
+      return this.$store.state.flg_bp.flgPc;
     }
   }
 };
 </script>
 
 <style lang="scss">
+.graph-box {
+  margin-top: 24px;
+}
 .result-graph {
   position: relative;
 }
