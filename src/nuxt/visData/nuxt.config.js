@@ -247,7 +247,6 @@ export default {
     ]
   },
   workbox: {
-    workboxVersion: nowDatetime,
     offline: false,
     skipWaiting: true,
     clientsClaim: true,
