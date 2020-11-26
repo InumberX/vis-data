@@ -203,120 +203,121 @@ export default {
   },
   // PWA
   pwa: {
-    manifest: {
-      name: title,
-      title: title,
-      lang: 'ja',
-      theme_color: '#12c2e9',
-      background_color: '#111111',
-      display: 'standalone',
-      scope: '/',
-      start_url: url + '/',
-      icons: [
-        {
-          src: '/img/favicon_72.png',
-          sizes: '72x72',
-          type: 'image/png'
-        },
-        {
-          src: '/img/favicon_96.png',
-          sizes: '96x96',
-          type: 'image/png'
-        },
-        {
-          src: '/img/favicon_128.png',
-          sizes: '128x128',
-          type: 'image/png'
-        },
-        {
-          src: '/img/favicon_144.png',
-          sizes: '144x144',
-          type: 'image/png'
-        },
-        {
-          src: '/img/favicon_152.png',
-          sizes: '152x152',
-          type: 'image/png'
-        },
-        {
-          src: '/img/favicon_192.png',
-          sizes: '192x192',
-          type: 'image/png'
-        },
-        {
-          src: '/img/favicon_384.png',
-          sizes: '384x384',
-          type: 'image/png'
-        },
-        {
-          src: '/img/favicon_512.png',
-          sizes: '512x512',
-          type: 'image/png'
-        }
-      ]
-    },
-    workbox: {
-      offline: false,
-      cacheAssets: false,
-      skipWaiting: true,
-      clientsClaim: true,
-      cleanupOutdatedCaches: true,
-      cacheOptions: {
-        revision: nowDatetime
+    icon: false
+  },
+  manifest: {
+    name: title,
+    title: title,
+    lang: 'ja',
+    theme_color: '#12c2e9',
+    background_color: '#111111',
+    display: 'standalone',
+    scope: '/',
+    start_url: url + '/',
+    icons: [
+      {
+        src: '/img/favicon_72.png',
+        sizes: '72x72',
+        type: 'image/png'
       },
-      preCaching: [
-        {
-          url: '/json/pref.json',
-          revision: nowDatetime
+      {
+        src: '/img/favicon_96.png',
+        sizes: '96x96',
+        type: 'image/png'
+      },
+      {
+        src: '/img/favicon_128.png',
+        sizes: '128x128',
+        type: 'image/png'
+      },
+      {
+        src: '/img/favicon_144.png',
+        sizes: '144x144',
+        type: 'image/png'
+      },
+      {
+        src: '/img/favicon_152.png',
+        sizes: '152x152',
+        type: 'image/png'
+      },
+      {
+        src: '/img/favicon_192.png',
+        sizes: '192x192',
+        type: 'image/png'
+      },
+      {
+        src: '/img/favicon_384.png',
+        sizes: '384x384',
+        type: 'image/png'
+      },
+      {
+        src: '/img/favicon_512.png',
+        sizes: '512x512',
+        type: 'image/png'
+      }
+    ]
+  },
+  workbox: {
+    offline: false,
+    cacheAssets: false,
+    skipWaiting: true,
+    clientsClaim: true,
+    cleanupOutdatedCaches: true,
+    cacheOptions: {
+      revision: nowDatetime
+    },
+    preCaching: [
+      {
+        url: '/json/pref.json',
+        revision: nowDatetime
+      }
+    ],
+    runtimeCaching: [
+      {
+        urlPattern: '/',
+        handler: 'networkFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheExpiration: {
+            maxAgeSeconds: 0
+          },
+          cacheableResponse: {
+            statuses: [200]
+          }
         }
-      ],
-      runtimeCaching: [
-        {
-          urlPattern: '/',
-          handler: 'networkFirst',
-          method: 'GET',
-          strategyOptions: {
-            cacheExpiration: {
-              maxAgeSeconds: 0
-            },
-            cacheableResponse: {
-              statuses: [200]
-            }
+      },
+      {
+        urlPattern: '/*',
+        handler: 'networkFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheExpiration: {
+            maxAgeSeconds: 0
+          },
+          cacheableResponse: {
+            statuses: [200]
           }
-        },
-        {
-          urlPattern: '/*',
-          handler: 'networkFirst',
-          method: 'GET',
-          strategyOptions: {
-            cacheExpiration: {
-              maxAgeSeconds: 0
-            },
-            cacheableResponse: {
-              statuses: [200]
-            }
-          }
-        },
-        {
-          urlPattern: '/*.*',
-          handler: 'networkFirst',
-          method: 'GET',
-          strategyOptions: {
-            cacheExpiration: {
-              maxAgeSeconds: 0
-            },
-            cacheableResponse: {
-              statuses: [200]
-            }
-          }
-        },
-        {
-          // デフォルト（最後に記述する）
-          urlPattern: '/*',
-          handler: 'networkFirst',
-          method: 'GET'
         }
-      ]
-    }
+      },
+      {
+        urlPattern: '/*.*',
+        handler: 'networkFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheExpiration: {
+            maxAgeSeconds: 0
+          },
+          cacheableResponse: {
+            statuses: [200]
+          }
+        }
+      },
+      {
+        // デフォルト（最後に記述する）
+        urlPattern: '/*',
+        handler: 'networkFirst',
+        method: 'GET'
+      }
+    ]
   }
 };
