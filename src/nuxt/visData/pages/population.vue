@@ -120,6 +120,11 @@ export default {
     Chart.defaults.global.defaultFontFamily =
       '-apple-system, BlinkMacSystemFont, Lucida Grande, Helvetica, Arial, "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif';
     Chart.defaults.global.defaultFontSize = 10;
+    Chart.defaults.global.tooltips.mode = 'index';
+    Chart.defaults.global.tooltips.titleFontSize = 16;
+    Chart.defaults.global.tooltips.titleFontStyle = '700';
+    Chart.defaults.global.tooltips.bodyFontSize = 14;
+    Chart.defaults.global.tooltips.bodyFontStyle = '400';
 
     this.initPopulationGraph();
   },
@@ -156,9 +161,28 @@ export default {
                 gridLines: {
                   color: 'rgba(255, 255, 255, 0.4)',
                   zeroLineColor: 'rgba(255, 255, 255, 1)'
+                },
+                ticks: {
+                  userCallback: function(item) {
+                    return item + '%';
+                  }
                 }
               }
             ]
+          },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItem, data) {
+                const thisData = data.datasets[tooltipItem.datasetIndex];
+                let label =
+                  thisData.label +
+                  '：' +
+                  thisData.data[tooltipItem.index] +
+                  '%';
+
+                return label;
+              }
+            }
           }
         };
 
