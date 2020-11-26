@@ -259,6 +259,9 @@ export default {
     cacheAssets: false,
     skipWaiting: true,
     clientsClaim: true,
+    cacheOptions: {
+      revision: nowDatetime
+    },
     preCaching: [
       {
         url: '/json/pref.json',
