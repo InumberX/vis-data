@@ -271,6 +271,19 @@ export default {
       ],
       runtimeCaching: [
         {
+          urlPattern: '/',
+          handler: 'networkFirst',
+          method: 'GET',
+          strategyOptions: {
+            cacheExpiration: {
+              maxAgeSeconds: 0
+            },
+            cacheableResponse: {
+              statuses: [200]
+            }
+          }
+        },
+        {
           urlPattern: '/*',
           handler: 'networkFirst',
           method: 'GET',
