@@ -86,6 +86,7 @@ export default {
 }
 .page-list-box {
   padding-top: 96px;
+  overflow: hidden;
 }
 .page-list-img-box {
   position: absolute;

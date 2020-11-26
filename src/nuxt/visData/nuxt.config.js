@@ -251,8 +251,20 @@ export default {
     clientsClaim: false,
     runtimeCaching: [
       {
-        // 求人検索APIから取得した結果
         urlPattern: '/*',
+        handler: 'networkFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheExpiration: {
+            maxAgeSeconds: 0
+          },
+          cacheableResponse: {
+            statuses: [200]
+          }
+        }
+      },
+      {
+        urlPattern: '/*.*',
         handler: 'networkFirst',
         method: 'GET',
         strategyOptions: {
