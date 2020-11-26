@@ -8,12 +8,12 @@
     >
       <div class="inner">
         <div class="page-list-box">
-          <div class="page-list-img-box">
+          <div class="page-list-img-box animelm animelm-slide-in-right">
             <figure class="page-list-img-obj">
               <img :src="item.img" alt="" class="page-list-img" />
             </figure>
           </div>
-          <div class="page-list-cnt-box">
+          <div class="page-list-cnt-box animelm animelm-slide-in-left">
             <nuxt-link :to="item.to" class="page-list-link">
               <div class="page-list-ttl-box">
                 <h2 class="page-list-ttl">
@@ -23,6 +23,9 @@
               </div>
               <div class="page-list-tx-box">
                 <p class="page-list-tx">{{ item.tx }}</p>
+                <p class="page-list-tx is-en" v-if="item.txEn">
+                  {{ item.txEn }}
+                </p>
               </div>
             </nuxt-link>
           </div>
@@ -36,7 +39,10 @@
 </template>
 
 <script>
+import mixinAnimelm from '~/mixins/animelm';
+
 export default {
+  mixins: [mixinAnimelm],
   components: {},
   data: function() {
     return {
@@ -47,7 +53,9 @@ export default {
           img: '/img/img_population.jpg',
           title: '人口増減率',
           titleEn: 'population',
-          tx: '各都道府県の人口増減率を表示します。'
+          tx: '各都道府県の人口増減率を表示します。',
+          txEn:
+            'Displays the percentage change in population for each province.'
         }
       ]
     };
@@ -109,12 +117,31 @@ export default {
   box-sizing: border-box;
 }
 .page-list-link:not(:root) {
+  position: relative;
   display: block;
   color: $palette-white--0;
   text-decoration: none;
-  padding: 16px;
+  padding: 16px 16px 32px;
   outline: 0;
   cursor: pointer;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    display: block;
+    width: 80px;
+    height: 16px;
+    border-bottom: 1px solid $palette-white--0;
+    border-right: 4px solid $palette-white--0;
+    transform: skew(45deg);
+    transition: 0.3s border-color;
+  }
+  &:hover {
+    &:after {
+      border-color: $palette-blue--1;
+    }
+  }
 }
 .page-list-ttl {
   margin: 0;
@@ -147,6 +174,12 @@ export default {
 }
 .page-list-tx {
   margin: 0;
+  + .page-list-tx {
+    margin-top: 8px;
+  }
+  &.is-en {
+    font-size: 1.4rem;
+  }
 }
 @media screen and (min-width: $bp--sm), print {
   .top-page-list-wrap {
@@ -161,13 +194,26 @@ export default {
     margin-top: -80px;
   }
   .page-list-link:not(:root) {
-    padding: 24px;
+    padding: 24px 24px 48px;
+    &:after {
+      bottom: 8px;
+      right: 24px;
+      width: 120px;
+      height: 24px;
+      border-bottom-width: 2px;
+      border-right-width: 6px;
+    }
   }
   .page-list-ttl {
     font-size: 2.6rem;
   }
   .page-list-ttl-sub {
     font-size: 2.2rem;
+  }
+  .page-list-tx {
+    &.is-en {
+      font-size: 1.6rem;
+    }
   }
 }
 @media screen and (min-width: $bp--md), print {
@@ -179,6 +225,9 @@ export default {
   }
   .page-list-link:not(:root) {
     padding: 48px;
+    &:after {
+      width: 240px;
+    }
   }
   .page-list-ttl {
     font-size: 2.8rem;
@@ -193,6 +242,9 @@ export default {
   }
   .page-list-link:not(:root) {
     padding: 64px;
+    &:after {
+      width: 320px;
+    }
   }
   .page-list-ttl {
     font-size: 3.2rem;

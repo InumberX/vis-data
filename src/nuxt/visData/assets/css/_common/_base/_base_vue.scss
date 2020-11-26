@@ -16,3 +16,32 @@
 .va-fade-leave {
   opacity: 1 !important;
 }
+
+/* アニメーション：スライド */
+.animelm-slide-in-top {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s opacity, 0.8s transform;
+}
+.animelm-slide-in-top.animelm-active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.animelm-slide-in-right {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: 0.8s opacity, 0.8s transform;
+}
+.animelm-slide-in-right.animelm-active {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.animelm-slide-in-left {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: 0.8s opacity, 0.8s transform;
+}
+.animelm-slide-in-left.animelm-active {
+  opacity: 1;
+  transform: translateX(0px);
+}

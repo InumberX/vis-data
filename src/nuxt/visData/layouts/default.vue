@@ -71,15 +71,6 @@ export default {
 <style lang="scss">
 /* ページ遷移アニメーション */
 .va-page {
-  &-enter {
-    &-active {
-      transition: opacity 0.6s;
-    }
-    opacity: 0 !important;
-    &-to {
-      opacity: 1 !important;
-    }
-  }
   &-leave {
     &-active {
       transition: opacity 0.6s, filter 0.6s;

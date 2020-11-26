@@ -27,6 +27,7 @@
             </div>
           </div>
           <!-- /.graph-box -->
+          <BackToTop />
         </div>
         <!-- /.cnt-box -->
       </div>
@@ -41,12 +42,14 @@ import { mapState, mapMutations, mapActions } from 'vuex';
 import mixinMeta from '~/mixins/meta';
 import PageTitle from '~/components/common/PageTitle.vue';
 import Select from '~/components/frm/Select.vue';
+import BackToTop from '~/components/common/BackToTop.vue';
 
 export default {
   mixins: [mixinMeta],
   components: {
     PageTitle: PageTitle,
-    Select: Select
+    Select: Select,
+    BackToTop: BackToTop
   },
   async asyncData({ store, $axios }) {
     let url = process.env.url;
