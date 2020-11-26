@@ -250,7 +250,7 @@ export default {
     offline: false,
     skipWaiting: true,
     clientsClaim: true,
-    precache: [
+    preCaching: [
       {
         url: '/index.html',
         revision: nowDatetime
