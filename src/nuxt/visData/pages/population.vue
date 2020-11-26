@@ -6,10 +6,7 @@
         <div class="cnt-box">
           <div class="frm-box">
             <div class="frm">
-              <div
-                class="frm-set animelm animelm-fade-in"
-                data-animelm-delay="1200"
-              >
+              <div class="frm-set">
                 <div class="frm-cnt is-right">
                   <Select
                     :items="pref"
