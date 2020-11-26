@@ -247,8 +247,8 @@ export default {
   },
   workbox: {
     offline: false,
-    skipWaiting: false,
-    clientsClaim: false,
+    skipWaiting: true,
+    clientsClaim: true,
     runtimeCaching: [
       {
         urlPattern: '/*',
