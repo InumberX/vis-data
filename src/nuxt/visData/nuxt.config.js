@@ -251,7 +251,12 @@ export default {
     cacheAssets: false,
     skipWaiting: true,
     clientsClaim: true,
-    preCaching: [],
+    preCaching: [
+      {
+        url: '/json/pref.json',
+        revision: nowDatetime
+      }
+    ],
     runtimeCaching: [
       {
         urlPattern: '/*',
