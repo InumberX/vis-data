@@ -184,13 +184,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    [
-      '@nuxtjs/pwa',
-      ,
-      {
-        icon: false
-      }
-    ]
+    '@nuxtjs/pwa'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -208,6 +202,9 @@ export default {
     }
   },
   // PWA
+  pwa: {
+    icon: false
+  },
   manifest: {
     name: title,
     title: title,
