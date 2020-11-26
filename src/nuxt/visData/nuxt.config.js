@@ -159,6 +159,14 @@ export default {
     }
   ],
 
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: '#fff',
+    height: '4px'
+  },
+
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
 
