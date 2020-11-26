@@ -250,16 +250,6 @@ export default {
     offline: false,
     skipWaiting: true,
     clientsClaim: true,
-    preCaching: [
-      {
-        url: '/index.html',
-        revision: nowDatetime
-      },
-      {
-        url: '/population/index.html',
-        revision: nowDatetime
-      }
-    ],
     runtimeCaching: [
       {
         urlPattern: '/*',
