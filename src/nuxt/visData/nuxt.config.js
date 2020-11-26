@@ -260,6 +260,7 @@ export default {
       cacheAssets: false,
       skipWaiting: true,
       clientsClaim: true,
+      cleanupOutdatedCaches: true,
       cacheOptions: {
         revision: nowDatetime
       },
