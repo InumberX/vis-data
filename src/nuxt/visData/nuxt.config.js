@@ -247,8 +247,8 @@ export default {
   },
   workbox: {
     offline: false,
-    skipWaiting: true,
-    clientsClaim: true,
+    skipWaiting: false,
+    clientsClaim: false,
     runtimeCaching: [
       {
         // 求人検索APIから取得した結果

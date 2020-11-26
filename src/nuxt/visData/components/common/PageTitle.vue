@@ -2,8 +2,8 @@
   <div class="page-ttl-wrap">
     <div class="inner">
       <div class="page-ttl-box">
-        <i class="page-ttl-circle"></i>
-        <div class="page-ttl">
+        <i class="page-ttl-circle animelm animelm-slide-in-top"></i>
+        <div class="page-ttl animelm animelm-fade-in" data-animelm-delay="600">
           <h1 class="page-ttl-tx">
             {{ title }}<span class="page-ttl-en">{{ titleEn }}</span>
           </h1>
@@ -18,8 +18,10 @@
 
 <script>
 import metaConfig from '~/config/meta';
+import mixinAnimelm from '~/mixins/animelm';
 
 export default {
+  mixins: [mixinAnimelm],
   components: {},
   props: {
     title: '',

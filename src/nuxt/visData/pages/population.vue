@@ -6,7 +6,10 @@
         <div class="cnt-box">
           <div class="frm-box">
             <div class="frm">
-              <div class="frm-set">
+              <div
+                class="frm-set animelm animelm-fade-in"
+                data-animelm-delay="1200"
+              >
                 <div class="frm-cnt is-right">
                   <Select
                     :items="pref"
@@ -19,7 +22,10 @@
           </div>
           <!-- /.frm-box -->
           <div class="graph-box">
-            <div class="result-graph">
+            <div
+              class="result-graph animelm animelm-slide-in-top"
+              data-animelm-delay="1800"
+            >
               <canvas
                 class="result-graph-canvas"
                 id="population-graph"
@@ -40,12 +46,13 @@
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex';
 import mixinMeta from '~/mixins/meta';
+import mixinAnimelm from '~/mixins/animelm';
 import PageTitle from '~/components/common/PageTitle.vue';
 import Select from '~/components/frm/Select.vue';
 import BackToTop from '~/components/common/BackToTop.vue';
 
 export default {
-  mixins: [mixinMeta],
+  mixins: [mixinMeta, mixinAnimelm],
   components: {
     PageTitle: PageTitle,
     Select: Select,
