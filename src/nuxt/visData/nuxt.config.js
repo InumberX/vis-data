@@ -250,6 +250,7 @@ export default {
     offline: false,
     skipWaiting: true,
     clientsClaim: true,
+    preCaching: [],
     runtimeCaching: [
       {
         urlPattern: '/*',
