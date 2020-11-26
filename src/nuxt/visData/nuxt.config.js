@@ -266,6 +266,9 @@ export default {
     cacheOptions: {
       revision: nowDatetime
     },
+    cacheNames: {
+      precache: 'workbox-precache-v' + nowDatetime
+    },
     preCaching: [
       {
         url: '/json/pref.json',
