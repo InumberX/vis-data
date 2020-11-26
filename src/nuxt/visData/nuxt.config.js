@@ -251,12 +251,7 @@ export default {
     cacheAssets: false,
     skipWaiting: true,
     clientsClaim: true,
-    preCaching: [
-      {
-        url: url + '/',
-        revision: nowDatetime
-      }
-    ],
+    preCaching: [],
     runtimeCaching: [
       {
         urlPattern: '/*',
