@@ -252,11 +252,11 @@ export default {
     clientsClaim: true,
     preCaching: [
       {
-        url: '/index.html',
+        url: '/',
         revision: nowDatetime
       },
       {
-        url: '/population/index.html',
+        url: '/population/',
         revision: nowDatetime
       }
     ],
