@@ -248,6 +248,7 @@ export default {
   },
   workbox: {
     offline: false,
+    cacheAssets: false,
     skipWaiting: true,
     clientsClaim: true,
     preCaching: [],
