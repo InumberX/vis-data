@@ -267,11 +267,24 @@ export default {
       revision: nowDatetime
     },
     cacheNames: {
-      precache: 'workbox-precache-v' + nowDatetime
+      prefix: 'vis-data',
+      suffix: 'v' + nowDatetime
     },
     preCaching: [
       {
         url: '/json/pref.json',
+        revision: nowDatetime
+      },
+      {
+        url: '/json/city.json',
+        revision: nowDatetime
+      },
+      {
+        url: '/json/population.json',
+        revision: nowDatetime
+      },
+      {
+        url: '/json/birth.json',
         revision: nowDatetime
       }
     ],
