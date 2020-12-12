@@ -21,7 +21,7 @@
           <div class="graph-box">
             <div
               class="result-graph animelm animelm-slide-in-top"
-              data-animelm-delay="1800"
+              data-animelm-delay="1200"
             >
               <canvas
                 class="result-graph-canvas"
@@ -57,7 +57,7 @@ export default {
   },
   async asyncData({ store, $axios }) {
     let url = process.env.url;
-    if (!process.server && location.hostname.indexOf('localhost') >= 0) {
+    if (process.env.NODE_ENV === 'development') {
       url = process.env.urlLocal;
     }
 

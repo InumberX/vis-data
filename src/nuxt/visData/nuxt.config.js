@@ -284,7 +284,7 @@ export default {
         revision: nowDatetime
       },
       {
-        url: '/json/birth.json',
+        url: '/json/births.json',
         revision: nowDatetime
       }
     ],

@@ -68,27 +68,27 @@ echo "【${data_name}】：データの取得を開始します。"
 
 len=$(echo $pref_result | jq length)
 
-birth_data='{}'
+births_data='{}'
 
 for i in $( seq 0 $(($len-1)) ); do
   row=$(echo $pref_result | jq .[$i])
-  birth_results=$(curl -H "X-API-KEY:${api_key}" "https://opendata.resas-portal.go.jp/api/v1/population/sum/estimate?cityCode=-&prefCode=$(echo $row | jq .prefCode)")
+  births_results=$(curl -H "X-API-KEY:${api_key}" "https://opendata.resas-portal.go.jp/api/v1/population/sum/estimate?cityCode=-&prefCode=$(echo $row | jq .prefCode)")
   wait
   sleep 1
 
-  birth_result=`echo ${birth_results} | jq -c -r .result`
+  births_result=`echo ${births_results} | jq -c -r .result`
 
   # データの取得に失敗した場合
-  if [ "$birth_result" = null ] ; then
+  if [ "$births_result" = null ] ; then
     echo "【${data_name}】[ERROR]：データの取得に失敗しました。"
     exit 0
   fi
-  birth_data=`echo ${birth_data} | jq -c -r '. |= .+ {"'$(echo $row | jq .prefCode)'": '$(echo ${birth_result})'}'`
+  births_data=`echo ${births_data} | jq -c -r '. |= .+ {"'$(echo $row | jq .prefCode)'": '$(echo ${births_result})'}'`
 done
 
 echo "【${data_name}】：データの取得が完了しました。"
 echo "【${data_name}】：JSONの出力を開始します。"
 
-echo $birth_data > json/birth.json
+echo $births_data > json/births.json
 
 echo "【${data_name}】：JSONの出力が完了しました。"

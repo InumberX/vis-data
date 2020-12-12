@@ -8,12 +8,22 @@
     >
       <div class="inner">
         <div class="page-list-box">
-          <div class="page-list-img-box animelm animelm-slide-in-right">
+          <div
+            class="page-list-img-box animelm"
+            :class="[
+              i % 2 === 0 ? 'animelm-slide-in-right' : 'animelm-slide-in-left'
+            ]"
+          >
             <figure class="page-list-img-obj">
               <img :src="item.img" alt="" class="page-list-img" />
             </figure>
           </div>
-          <div class="page-list-cnt-box animelm animelm-slide-in-left">
+          <div
+            class="page-list-cnt-box animelm"
+            :class="[
+              i % 2 === 0 ? 'animelm-slide-in-left' : 'animelm-slide-in-right'
+            ]"
+          >
             <nuxt-link :to="item.to" class="page-list-link">
               <div class="page-list-ttl-box">
                 <h2 class="page-list-ttl">
@@ -56,6 +66,15 @@ export default {
           tx: '各都道府県の人口増減率を表示します。',
           txEn:
             'Displays the percentage change in population for each province.'
+        },
+        {
+          id: 'births',
+          to: '/births/',
+          img: '/img/img_births.jpg',
+          title: '出生数',
+          titleEn: 'births',
+          tx: '各都道府県の出生数を表示します。',
+          txEn: 'Displays the number of births in each prefecture.'
         }
       ]
     };
@@ -79,10 +98,21 @@ export default {
     &:first-of-type {
       margin-top: 0;
     }
+    &:nth-of-type(even) {
+      .page-list-img-box {
+        left: auto;
+        right: 0;
+      }
+      .page-list-cnt-box {
+        margin: 0 auto 0 0;
+      }
+    }
   }
 }
 .page-list-wrap {
   position: relative;
+  margin-top: 80px;
+  overflow: hidden;
 }
 .page-list-box {
   padding-top: 96px;
@@ -185,6 +215,17 @@ export default {
 @media screen and (min-width: $bp--sm), print {
   .top-page-list-wrap {
     margin-top: 56px;
+    .page-list-wrap {
+      &:nth-of-type(even) {
+        .page-list-img-box {
+          right: auto;
+          margin-left: auto;
+        }
+        .page-list-cnt-box {
+          margin-top: -80px;
+        }
+      }
+    }
   }
   .page-list-img-box {
     position: relative;
@@ -220,6 +261,13 @@ export default {
 @media screen and (min-width: $bp--md), print {
   .top-page-list-wrap {
     margin-top: 64px;
+    .page-list-wrap {
+      &:nth-of-type(even) {
+        .page-list-cnt-box {
+          margin-top: -96px;
+        }
+      }
+    }
   }
   .page-list-cnt-box {
     margin-top: -96px;
