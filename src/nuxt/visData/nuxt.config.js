@@ -267,8 +267,8 @@ export default {
       revision: nowDatetime
     },
     cacheNames: {
-      prefix: 'vis-data',
-      suffix: 'v' + nowDatetime
+      precache: 'vis-data-precache-v' + nowDatetime,
+      runtime: 'vis-data-runtime-v' + nowDatetime
     },
     preCaching: [
       {
