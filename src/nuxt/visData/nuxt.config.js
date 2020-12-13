@@ -125,11 +125,6 @@ export default {
         hid: 'apple-touch-icon',
         rel: 'apple-touch-icon',
         href: '/img/favicon_180.png'
-      },
-      {
-        hid: 'appleTouchIcon',
-        rel: 'apple-touch-icon',
-        href: '/img/favicon.png'
       }
     ],
     script: [
