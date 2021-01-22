@@ -6,7 +6,7 @@
           <p class="ft-copy">
             <small class="ft-copy-tx" lang="en"
               >&copy;
-              <i class="ft-copy-year" id="ft-copy-year" vcloak>{{
+              <i class="ft-copy-year" id="ft-copy-year" v-cloak>{{
                 currentYear
               }}</i>
               N/NE, All rights reserved.
