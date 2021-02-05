@@ -19,6 +19,10 @@
                   class="md-obj"
                 />ビジュアル的に表現することを目的としたサイトです。</span
               >
+              <span class="mv-ttl-tx-sub is-en"
+                >vis:Data is a website that aims to visually represent various
+                types of data using graphs and other means.</span
+              >
             </h1>
           </div>
         </div>
@@ -289,6 +293,13 @@ export default {
     top: 0;
     left: 0;
   }
+  &.is-en {
+    padding-top: 0;
+    font-size: 1.4rem;
+    &:before {
+      content: none;
+    }
+  }
 }
 .va-fade-mv-leave-active {
   transition: 0.6s opacity;
@@ -319,6 +330,9 @@ export default {
   }
   .mv-ttl-tx-sub {
     font-size: 1.8rem;
+    &.is-en {
+      font-size: 1.6rem;
+    }
   }
 }
 @media screen and (min-width: $bp--md), print {
@@ -328,6 +342,9 @@ export default {
   .mv-ttl-tx-sub {
     padding-top: 24px;
     font-size: 2rem;
+    &.is-en {
+      font-size: 1.8rem;
+    }
   }
 }
 @media screen and (min-width: $bp--lg), print {
@@ -336,6 +353,9 @@ export default {
   }
   .mv-ttl-tx-sub {
     font-size: 2.2rem;
+    &.is-en {
+      font-size: 2rem;
+    }
   }
 }
 @media screen and (min-width: $bp--xl), print {

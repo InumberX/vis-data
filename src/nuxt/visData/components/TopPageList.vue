@@ -151,6 +151,7 @@ export default {
   position: relative;
   display: block;
   color: $palette-white--0;
+  background-color: $palette-black--3;
   text-decoration: none;
   padding: 16px 16px 32px;
   outline: 0;

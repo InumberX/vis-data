@@ -286,6 +286,18 @@ export default {
       {
         url: '/json/births.json',
         revision: nowDatetime
+      },
+      {
+        url: '/img/img_logo.svg',
+        revision: nowDatetime
+      },
+      {
+        url: '/img/img_population.jpg',
+        revision: nowDatetime
+      },
+      {
+        url: '/img/img_births.jpg',
+        revision: nowDatetime
       }
     ],
     runtimeCaching: [
