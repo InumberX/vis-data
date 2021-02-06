@@ -9,19 +9,21 @@
     "generate": "nuxt-ts generate"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/axios": "^5.12.3",
+    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxtjs/axios": "^5.13.0",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/google-gtag": "^1.0.4",
-    "@nuxtjs/pwa": "^3.3.2",
-    "core-js": "^3.8.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.8.3",
     "fullpage.js": "^3.0.9",
-    "nuxt": "^2.14.11",
-    "swiper": "^6.4.1"
+    "loader-utils": "^2.0.0",
+    "nuxt": "^2.14.12",
+    "object-fit-images": "^3.2.4",
+    "swiper": "^6.4.10"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.11",
-    "@nuxt/typescript-build": "^2.0.3",
+    "@nuxt/types": "^2.14.12",
+    "@nuxt/typescript-build": "^2.0.4",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0"
   }

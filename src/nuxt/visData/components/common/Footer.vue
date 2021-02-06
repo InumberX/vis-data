@@ -64,4 +64,14 @@ export default {
     padding: 40px 0;
   }
 }
+@media screen and (min-width: $bp--md), print {
+  .ft-wrap {
+    margin-top: 80px;
+  }
+}
+@media screen and (min-width: $bp--lg), print {
+  .ft-wrap {
+    margin-top: 120px;
+  }
+}
 </style>

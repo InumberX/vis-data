@@ -7,24 +7,14 @@
       :id="item.id"
     >
       <div class="inner">
-        <div class="page-list-box">
-          <div
-            class="page-list-img-box animelm"
-            :class="[
-              i % 2 === 0 ? 'animelm-slide-in-right' : 'animelm-slide-in-left'
-            ]"
-          >
-            <figure class="page-list-img-obj">
-              <img :src="item.img" alt="" class="page-list-img" />
-            </figure>
-          </div>
-          <div
-            class="page-list-cnt-box animelm"
-            :class="[
-              i % 2 === 0 ? 'animelm-slide-in-left' : 'animelm-slide-in-right'
-            ]"
-          >
-            <nuxt-link :to="item.to" class="page-list-link">
+        <div class="page-list-box animelm animelm-slide-in-top">
+          <nuxt-link :to="item.to" class="page-list-link">
+            <div class="page-list-img-box">
+              <figure class="page-list-img-obj">
+                <img :src="item.img" alt="" class="page-list-img" />
+              </figure>
+            </div>
+            <div class="page-list-cnt-box">
               <div class="page-list-ttl-box">
                 <h2 class="page-list-ttl">
                   <span class="page-list-ttl-mn">{{ item.title }}</span>
@@ -37,8 +27,8 @@
                   {{ item.txEn }}
                 </p>
               </div>
-            </nuxt-link>
-          </div>
+            </div>
+          </nuxt-link>
         </div>
       </div>
       <!-- /.inner -->
@@ -50,6 +40,7 @@
 
 <script>
 import mixinAnimelm from '~/mixins/animelm';
+import objectFitImages from 'object-fit-images';
 
 export default {
   mixins: [mixinAnimelm],
@@ -80,7 +71,9 @@ export default {
     };
   },
   created: function() {},
-  mounted: function() {},
+  mounted: function() {
+    objectFitImages('.page-list-img');
+  },
   methods: {}
 };
 </script>
@@ -111,25 +104,17 @@ export default {
 }
 .page-list-wrap {
   position: relative;
-  margin-top: 80px;
+  margin-top: 40px;
   overflow: hidden;
 }
 .page-list-box {
-  padding-top: 96px;
   overflow: hidden;
-}
-.page-list-img-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%;
-  max-width: 768px;
-  z-index: $z-index--1;
 }
 .page-list-img-obj {
   position: relative;
   display: block;
   padding-top: 56.25%;
+  overflow: hidden;
 }
 .page-list-img {
   position: absolute;
@@ -138,40 +123,30 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  font-family: 'object-fit: cover;';
+  transition: 0.6s transform;
 }
 .page-list-cnt-box {
   position: relative;
   z-index: $z-index--2;
-  width: 80%;
-  margin: 0 0 0 auto;
-  background-color: $palette-black--1;
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  background-color: $palette-black--3;
   box-sizing: border-box;
 }
 .page-list-link:not(:root) {
   position: relative;
   display: block;
   color: $palette-white--0;
-  background-color: $palette-black--3;
+  background-color: transparent;
   text-decoration: none;
-  padding: 16px 16px 32px;
+  padding: 0;
   outline: 0;
   cursor: pointer;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-    display: block;
-    width: 80px;
-    height: 16px;
-    border-bottom: 1px solid $palette-white--0;
-    border-right: 4px solid $palette-white--0;
-    transform: skew(45deg);
-    transition: 0.3s border-color;
-  }
   &:hover {
-    &:after {
-      border-color: $palette-blue--1;
+    .page-list-img {
+      transform: scale(1.2);
     }
   }
 }
@@ -228,24 +203,22 @@ export default {
       }
     }
   }
+  .page-list-box {
+    padding-top: 96px;
+  }
   .page-list-img-box {
     position: relative;
     top: auto;
     left: auto;
+    width: 80%;
+    max-width: 768px;
+    z-index: $z-index--1;
   }
   .page-list-cnt-box {
     margin-top: -80px;
-  }
-  .page-list-link:not(:root) {
-    padding: 24px 24px 48px;
-    &:after {
-      bottom: 8px;
-      right: 24px;
-      width: 120px;
-      height: 24px;
-      border-bottom-width: 2px;
-      border-right-width: 6px;
-    }
+    width: 80%;
+    margin-left: auto;
+    padding: 24px;
   }
   .page-list-ttl {
     font-size: 2.6rem;
@@ -272,12 +245,7 @@ export default {
   }
   .page-list-cnt-box {
     margin-top: -96px;
-  }
-  .page-list-link:not(:root) {
     padding: 48px;
-    &:after {
-      width: 240px;
-    }
   }
   .page-list-ttl {
     font-size: 2.8rem;
@@ -287,14 +255,36 @@ export default {
   }
 }
 @media screen and (min-width: $bp--lg), print {
-  .page-list-cnt-box {
-    margin-top: -136px;
+  .top-page-list-wrap {
+    margin-top: 120px;
+    .page-list-wrap {
+      &:nth-of-type(even) {
+        .page-list-cnt-box {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .page-list-wrap {
+    margin-top: 80px;
+  }
+  .page-list-box {
+    padding-top: 0;
   }
   .page-list-link:not(:root) {
-    padding: 64px;
-    &:after {
-      width: 320px;
-    }
+    display: flex;
+  }
+  .page-list-img-box {
+    width: 45%;
+    max-width: none;
+  }
+  .page-list-img-obj {
+    position: static;
+    padding-top: 0;
+  }
+  .page-list-cnt-box {
+    margin-top: 0;
+    width: 55%;
   }
   .page-list-ttl {
     font-size: 3.2rem;
