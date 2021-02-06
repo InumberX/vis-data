@@ -260,7 +260,10 @@ export default {
     .page-list-wrap {
       &:nth-of-type(even) {
         .page-list-cnt-box {
-          margin-top: 0;
+          margin: 0;
+        }
+        .page-list-link:not(:root) {
+          flex-direction: row-reverse;
         }
       }
     }
@@ -277,13 +280,14 @@ export default {
   .page-list-img-box {
     width: 45%;
     max-width: none;
+    margin: 0;
   }
   .page-list-img-obj {
     position: static;
     padding-top: 0;
   }
   .page-list-cnt-box {
-    margin-top: 0;
+    margin: 0;
     width: 55%;
   }
   .page-list-ttl {
